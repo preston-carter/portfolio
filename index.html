@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preston A. Carter - Senior Analytics Engineer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.5s ease;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        header.compact {
+            height: 160px;
+            padding: 1rem;
+            justify-content: flex-start;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 10;
+            text-align: left;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .header-text {
+            flex-grow: 1;
+        }
+
+        header h1, header p {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        .typing::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        nav {
+            background: #333;
+            padding: 0.5rem;
+            position: fixed;
+            top: 160px;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav ul li {
+            margin: 0 10px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: #555;
+        }
+        
+        .content-wrapper {
+            padding-top: 220px; /* Header (160px) + Nav (40px) + Extra space (20px) */
+        }
+        
+        section {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background-color: #e0e0e0;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: #d0d0d0;
+            transform: scale(1.05);
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-icons a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        .contact-icons img {
+            width: 40px;
+            height: 40px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="particles" id="particles"></div>
+        <div class="header-content">
+            <img src="/api/placeholder/100/100" alt="Preston A. Carter" class="header-image">
+            <div class="header-text">
+                <h1 id="name" class="typing"></h1>
+                <p id="title"></p>
+            </div>
+        </div>
+    </header>
+
+    <nav id="nav">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="content-wrapper">
+        <main id="main" class="container">
+            <section id="about">
+                <h2>About Me</h2>
+                <p>Experienced Analytics Engineer and Data Analyst with expertise in SQL, ETL/pipeline development, data modeling, and cloud platforms. Proven track record in translating complex business logic into efficient, scalable data solutions.</p>
+            </section>
+            
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="skills-container">
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">ETL</span>
+                    <span class="skill-tag">Pipeline Development</span>
+                    <span class="skill-tag">Data Modeling</span>
+                    <span class="skill-tag">Data Governance</span>
+                    <span class="skill-tag">Dataform</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Google Cloud Platform</span>
+                    <span class="skill-tag">GitHub</span>
+                    <span class="skill-tag">API</span>
+                    <span class="skill-tag">Data Visualization</span>
+                </div>
+            </section>
+            
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="project">
+                    <h3>End-to-End Cloud Data Pipeline</h3>
+                    <p>Designed and implemented a robust data pipeline using [specific technologies]. This project showcases my ability to handle large-scale data processing and analytics in a cloud environment.</p>
+                    <img src="/api/placeholder/400/320" alt="Cloud Data Pipeline Project" />
+                </div>
+            </section>
+            
+            <section id="contact">
+                <h2>Contact</h2>
+                <div class="contact-icons">
+                    <a href="mailto:preston.alex.carter@gmail.com">
+                        <img src="/api/placeholder/40/40" alt="Email" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/prestonacarter/" target="_blank">
+                        <img src="/api/placeholder/40/40" alt="LinkedIn" />
+                    </a>
+                    <a href="https://github.com/preston-carter" target="_blank">
+                        <img src="/api/placeholder/40/40" alt="GitHub" />
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Preston A. Carter. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 100;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.width = `${Math.random() * 5 + 1}px`;
+                particle.style.height = particle.style.width;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        function animateParticles() {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach(particle => {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                particle.style.transform = `translate(${x}px, ${y}px)`;
+                particle.style.transition = `transform ${Math.random() * 3 + 2}s linear`;
+            });
+        }
+
+        function transitionHeader() {
+            const header = document.getElementById('header');
+            header.classList.add('compact');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        async function typeText(element, text, speed) {
+            for (let i = 0; i < text.length; i++) {
+                element.textContent += text[i];
+                await new Promise(resolve => setTimeout(resolve, speed));
+            }
+        }
+
+        async function typewriterEffect() {
+            const nameElement = document.getElementById('name');
+            const titleElement = document.getElementById('title');
+            
+            await typeText(nameElement, 'Preston A. Carter', 100);
+            await new Promise(resolve => setTimeout(resolve, 500)); // Pause before typing title
+            nameElement.classList.remove('typing');
+            titleElement.classList.add('typing');
+            await typeText(titleElement, 'Senior Analytics Engineer | Data Warehouse Architecture | ETL Specialist', 50);
+            titleElement.classList.remove('typing');
+        }
+
+        window.addEventListener('load', () => {
+            createParticles();
+            setInterval(animateParticles, 3000);
+            typewriterEffect().then(() => {
+                setTimeout(transitionHeader, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
