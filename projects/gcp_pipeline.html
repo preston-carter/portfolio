@@ -28,6 +28,59 @@
                 background-color: #555;
             }
 
+        .project-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .project-section:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .project-section h3 {
+                color: #333;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .project-section ul {
+                list-style-type: none;
+                padding-left: 1.5rem;
+            }
+
+                .project-section ul li {
+                    margin-bottom: 0.75rem;
+                    position: relative;
+                }
+
+                    .project-section ul li::before {
+                        content: "•";
+                        position: absolute;
+                        left: -1rem;
+                        color: #666;
+                    }
+
+                .project-section ul ul {
+                    margin-top: 0.5rem;
+                    margin-left: 0.5rem;
+                }
+
+        .content-divider {
+            height: 6px;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            margin: 3rem 0;
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+
         @keyframes flow {
             0% {
                 transform: translateX(-100%);
@@ -57,19 +110,134 @@
         .animate-fade-in {
             animation: fade-in 0.5s ease-out;
         }
+
+        .detailed-content {
+            background: #f8fafc;
+            padding: 2rem 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <a href="../index.html" class="back-button">← Back to Portfolio</a>
 
+    <!-- Header and Visualization Section -->
     <div class="max-w-4xl mx-auto px-4">
         <h1 class="text-4xl font-bold text-center mt-8 mb-4">End-to-End Cloud Data Pipeline</h1>
-        <p class="text-center mb-8">A comprehensive data pipeline processing Solar System data from raw API to analytics-ready datasets</p>
+        <p class="text-center mb-12 text-gray-600">A comprehensive data pipeline processing Solar System data from raw API to analytics-ready datasets</p>
 
-        <div id="pipeline-viz"></div>
+        <div id="pipeline-viz" class="mb-16"></div>
+
+        <div class="content-divider"></div>
     </div>
 
+    <!-- Detailed Content Section -->
+    <div class="detailed-content">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="project-section">
+                <h3>1. Data Collection & Storage</h3>
+                <ul>
+                    <li>Python script calls Solar System OpenData API</li>
+                    <li>API response parsed into planet and moon JSON files</li>
+                    <li>BigQuery client loads JSON data into staging tables</li>
+                    <li>Raw data preserves original structure and French naming</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h3>2. Base Transformations</h3>
+                <ul>
+                    <li>
+                        Planet table creation:
+                        <ul>
+                            <li>Generates unique PlanetId</li>
+                            <li>Standardizes field names</li>
+                            <li>Extracts nested JSON values (mass, volume)</li>
+                            <li>Applies consistent units of measurement</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Moon table creation:
+                        <ul>
+                            <li>Maps moons to parent planets</li>
+                            <li>Handles French-to-English planet name translation</li>
+                            <li>Creates standardized MoonId system</li>
+                            <li>Maintains orbital relationship data</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h3>3. Data Quality Framework</h3>
+                <ul>
+                    <li>
+                        Automated assertions verify:
+                        <ul>
+                            <li>Physical properties (mass, density, gravity)</li>
+                            <li>Orbital parameters (perihelion < aphelion)</li>
+                            <li>Valid measurement ranges</li>
+                            <li>Required field population</li>
+                        </ul>
+                    </li>
+                    <li>Quality checks run before transformation completion</li>
+                    <li>Failed validations trigger pipeline alerts</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h3>4. Metrics Layer</h3>
+                <ul>
+                    <li>
+                        Aggregated moon statistics by planet:
+                        <ul>
+                            <li>Population counts and distributions</li>
+                            <li>Physical characteristic averages</li>
+                            <li>Size classifications</li>
+                            <li>Orbital parameter analysis</li>
+                        </ul>
+                    </li>
+                    <li>Handles sparse data appropriately</li>
+                    <li>Focuses on well-populated metrics</li>
+                    <li>Ready for visualization consumption</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h3>5. Orchestration & Scheduling</h3>
+                <ul>
+                    <li>GitHub Actions triggers daily API extract</li>
+                    <li>
+                        Dataform manages transformation sequence:
+                        <ul>
+                            <li>Raw data validation</li>
+                            <li>Base table creation</li>
+                            <li>Data quality checks</li>
+                            <li>Metrics calculations</li>
+                        </ul>
+                    </li>
+                    <li>Error handling and notification system</li>
+                    <li>Automated cleanup processes</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h3>6. Development Workflow</h3>
+                <ul>
+                    <li>Changes developed in solar-system-dev</li>
+                    <li>Testing and validation in development</li>
+                    <li>PR review process</li>
+                    <li>Deployment to solar-system-prod</li>
+                    <li>Daily production refresh via Dataform</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- React Pipeline Component Script -->
     <script>
+        // (Previous React component code remains exactly the same)
         const PipelineStage = ({ title, icon, color, isActive, onClick }) => {
             return React.createElement('div', {
                 onClick: onClick,
