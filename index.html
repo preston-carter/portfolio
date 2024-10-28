@@ -55,18 +55,18 @@
         .header-content {
             position: relative;
             z-index: 10;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 800px; /* Reduced max-width to keep the centered content tighter */
+            margin: 0 auto; /* This centers the entire block */
             width: 100%;
             display: flex;
             align-items: center;
+            justify-content: center; /* Center the content horizontally */
         }
 
         .header-main {
             display: flex;
             align-items: center;
             gap: 20px;
-            flex-grow: 1;
         }
 
         .header-image {
@@ -74,17 +74,16 @@
             height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            object-position: 0 -10px;
+  /*          object-position: 0 10px;*/
         }
 
         .header-text {
-            flex-grow: 1;
+            flex-grow: 0; /* Changed from 1 to prevent stretching */
         }
 
         .name-container {
             display: flex;
-            align-items: center; /* This will vertically center the name and icons */
-            gap: 15px;
+            align-items: center;
             margin-bottom: 0.5rem;
         }
 
@@ -92,25 +91,20 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            padding-top: 4px; /* This nudges the icons down slightly to align with the text */
         }
 
             .header-contact img {
                 width: 24px;
                 height: 24px;
                 transition: transform 0.3s ease;
+                filter: brightness(0) invert(1);
             }
 
             .header-contact a {
                 opacity: 0;
                 animation: fadeIn 0.5s ease-in forwards;
                 animation-delay: 5s;
-            }
-
-            .header-contact img {
-                width: 24px;
-                height: 24px;
-                transition: transform 0.3s ease;
-                filter: brightness(0) invert(1); /* This will make the icons white */
             }
 
             .header-contact a:hover img {
@@ -124,12 +118,16 @@
 
         header h1 {
             font-size: 2.5rem;
+            margin-right: 15px;
+            white-space: nowrap;
+            line-height: 1.2; /* This helps with vertical alignment */
         }
 
         header p {
             font-size: 1.2rem;
             white-space: nowrap;
             color: #ffffff;
+            text-align: center;
         }
 
         .typing::after {
@@ -279,14 +277,14 @@
                     <div class="name-container">
                         <h1 id="name" class="typing"></h1>
                         <div class="header-contact">
-                            <a href="mailto:preston.alex.carter@gmail.com">
-                                <img src="./images/gmail.png" alt="Email" />
-                            </a>
                             <a href="https://www.linkedin.com/in/prestonacarter/" target="_blank">
                                 <img src="./images/linkedin.png" alt="LinkedIn" />
                             </a>
                             <a href="https://github.com/preston-carter" target="_blank">
                                 <img src="./images/github.png" alt="GitHub" />
+                            </a>
+                            <a href="mailto:preston.alex.carter@gmail.com">
+                                <img src="./images/gmail.png" alt="Email" />
                             </a>
                         </div>
                     </div>
