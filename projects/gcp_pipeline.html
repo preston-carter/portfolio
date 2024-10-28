@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End-to-End Cloud Data Pipeline - Preston A. Carter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .project-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .project-section {
+            margin-bottom: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+            .project-section h3 {
+                color: #333;
+                margin-bottom: 1rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 2px solid #eee;
+            }
+
+            .project-section ul {
+                list-style-type: none;
+                padding-left: 20px;
+            }
+
+                .project-section ul li {
+                    margin-bottom: 0.5rem;
+                    position: relative;
+                }
+
+                    .project-section ul li::before {
+                        content: "•";
+                        position: absolute;
+                        left: -15px;
+                        color: #666;
+                    }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+            .back-button:hover {
+                background-color: #555;
+            }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+            .project-header h1 {
+                font-size: 2rem;
+                color: #333;
+                margin-bottom: 1rem;
+            }
+
+        #pipeline-viz {
+            margin-bottom: 2rem;
+        }
+
+        @keyframes flow {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(400%);
+            }
+        }
+
+        .animate-flow {
+            animation: flow 2s linear infinite;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fade-in 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="project-content">
+        <a href="../index.html" class="back-button">← Back to Portfolio</a>
+
+        <div class="project-header">
+            <h1>End-to-End Cloud Data Pipeline</h1>
+            <p>A comprehensive data pipeline processing Solar System data from raw API to analytics-ready datasets</p>
+        </div>
+
+        <div id="pipeline-viz"></div>
+
+        <!-- Rest of the sections remain the same -->
+        <!-- Copy all the project sections from the previous version -->
+    </div>
+
+    <script src="../javascript/gcp_pipeline.js"></script>
+</body>
+</html>

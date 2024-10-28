@@ -10,20 +10,25 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 220px;
+        }
+
         body {
             font-family: 'Roboto', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f0f0f0;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         header {
             background: #1a1a1a;
             color: white;
@@ -41,11 +46,11 @@
             overflow: hidden;
         }
 
-        header.compact {
-            height: 160px;
-            padding: 1rem;
-            justify-content: flex-start;
-        }
+            header.compact {
+                height: 160px;
+                padding: 1rem;
+                justify-content: flex-start;
+            }
 
         .header-content {
             position: relative;
@@ -54,6 +59,9 @@
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+        }
+
+        .header-main {
             display: flex;
             align-items: center;
         }
@@ -69,6 +77,34 @@
             flex-grow: 1;
         }
 
+        .name-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-contact {
+            display: flex;
+            gap: 15px;
+        }
+
+            .header-contact a {
+                opacity: 0;
+                animation: fadeIn 0.5s ease-in forwards;
+                animation-delay: 5s;
+            }
+
+            .header-contact img {
+                width: 24px;
+                height: 24px;
+                transition: transform 0.3s ease;
+            }
+
+            .header-contact a:hover img {
+                transform: scale(1.1);
+            }
+
         header h1, header p {
             white-space: nowrap;
             overflow: hidden;
@@ -76,7 +112,6 @@
 
         header h1 {
             font-size: 2.5rem;
-            margin-bottom: 0.5rem;
         }
 
         header p {
@@ -89,8 +124,23 @@
         }
 
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+            0%, 100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .particles {
@@ -119,34 +169,34 @@
             z-index: 999;
         }
 
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        nav ul li {
-            margin: 0 10px;
-        }
-        
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            background-color: #555;
-        }
-        
+            nav ul {
+                list-style-type: none;
+                display: flex;
+                justify-content: center;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+                nav ul li {
+                    margin: 0 10px;
+                }
+
+                    nav ul li a {
+                        color: #fff;
+                        text-decoration: none;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        transition: background-color 0.3s;
+                    }
+
+                        nav ul li a:hover {
+                            background-color: #555;
+                        }
+
         .content-wrapper {
-            padding-top: 220px; /* Header (160px) + Nav (40px) + Extra space (20px) */
+            padding-top: 220px;
         }
-        
+
         section {
             background: white;
             margin-bottom: 2rem;
@@ -156,21 +206,21 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-        }
-        
+            section:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            }
+
         h2 {
             margin-bottom: 1rem;
         }
-        
+
         .skills-container {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
-        
+
         .skill-tag {
             background-color: #e0e0e0;
             padding: 5px 10px;
@@ -179,31 +229,24 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .skill-tag:hover {
-            background-color: #d0d0d0;
-            transform: scale(1.05);
-        }
+            .skill-tag:hover {
+                background-color: #d0d0d0;
+                transform: scale(1.05);
+            }
 
-        .contact-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .contact-icons a {
+        .project-link {
             display: inline-block;
-            transition: transform 0.3s ease;
+            margin-top: 1rem;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .contact-icons a:hover {
-            transform: scale(1.1);
-        }
+            .project-link:hover {
+                color: #666;
+            }
 
-        .contact-icons img {
-            width: 40px;
-            height: 40px;
-        }
-        
         footer {
             text-align: center;
             padding: 1rem;
@@ -216,10 +259,25 @@
     <header id="header">
         <div class="particles" id="particles"></div>
         <div class="header-content">
-            <img src="/api/placeholder/100/100" alt="Preston A. Carter" class="header-image">
-            <div class="header-text">
-                <h1 id="name" class="typing"></h1>
-                <p id="title"></p>
+            <div class="header-main">
+                <img src="/api/placeholder/100/100" alt="Preston A. Carter" class="header-image">
+                <div class="header-text">
+                    <div class="name-container">
+                        <h1 id="name" class="typing"></h1>
+                        <div class="header-contact">
+                            <a href="mailto:preston.alex.carter@gmail.com">
+                                <img src="/api/placeholder/24/24" alt="Email" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/prestonacarter/" target="_blank">
+                                <img src="/api/placeholder/24/24" alt="LinkedIn" />
+                            </a>
+                            <a href="https://github.com/preston-carter" target="_blank">
+                                <img src="/api/placeholder/24/24" alt="GitHub" />
+                            </a>
+                        </div>
+                    </div>
+                    <p id="title"></p>
+                </div>
             </div>
         </div>
     </header>
@@ -229,17 +287,16 @@
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    
+
     <div class="content-wrapper">
         <main id="main" class="container">
             <section id="about">
                 <h2>About Me</h2>
                 <p>Experienced Analytics Engineer and Data Analyst with expertise in SQL, ETL/pipeline development, data modeling, and cloud platforms. Proven track record in translating complex business logic into efficient, scalable data solutions.</p>
             </section>
-            
+
             <section id="skills">
                 <h2>Skills</h2>
                 <div class="skills-container">
@@ -257,33 +314,18 @@
                     <span class="skill-tag">Data Visualization</span>
                 </div>
             </section>
-            
+
             <section id="projects">
                 <h2>Projects</h2>
                 <div class="project">
                     <h3>End-to-End Cloud Data Pipeline</h3>
-                    <p>Designed and implemented a robust data pipeline using [specific technologies]. This project showcases my ability to handle large-scale data processing and analytics in a cloud environment.</p>
-                    <img src="/api/placeholder/400/320" alt="Cloud Data Pipeline Project" />
-                </div>
-            </section>
-            
-            <section id="contact">
-                <h2>Contact</h2>
-                <div class="contact-icons">
-                    <a href="mailto:preston.alex.carter@gmail.com">
-                        <img src="/api/placeholder/40/40" alt="Email" />
-                    </a>
-                    <a href="https://www.linkedin.com/in/prestonacarter/" target="_blank">
-                        <img src="/api/placeholder/40/40" alt="LinkedIn" />
-                    </a>
-                    <a href="https://github.com/preston-carter" target="_blank">
-                        <img src="/api/placeholder/40/40" alt="GitHub" />
-                    </a>
+                    <p>Designed and implemented a robust data pipeline using Solar System OpenData API, transforming raw data into analytics-ready datasets with comprehensive data quality checks and metrics.</p>
+                    <a href="projects/cloud-pipeline.html" class="project-link">View Project Details →</a>
                 </div>
             </section>
         </main>
     </div>
-    
+
     <footer>
         <p>&copy; 2024 Preston A. Carter. All rights reserved.</p>
     </footer>
@@ -317,7 +359,7 @@
         function transitionHeader() {
             const header = document.getElementById('header');
             header.classList.add('compact');
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         async function typeText(element, text, speed) {
@@ -330,7 +372,7 @@
         async function typewriterEffect() {
             const nameElement = document.getElementById('name');
             const titleElement = document.getElementById('title');
-            
+
             await typeText(nameElement, 'Preston A. Carter', 100);
             await new Promise(resolve => setTimeout(resolve, 500)); // Pause before typing title
             nameElement.classList.remove('typing');
