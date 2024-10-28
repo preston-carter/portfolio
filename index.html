@@ -55,23 +55,24 @@
         .header-content {
             position: relative;
             z-index: 10;
-            text-align: center; /* Center the entire header content */
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+            display: flex;
+            align-items: center;
         }
 
         .header-main {
             display: flex;
             align-items: center;
-            justify-content: center; /* Center the main content horizontally */
+            gap: 20px;
+            flex-grow: 1;
         }
 
         .header-image {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            margin-right: 20px;
             object-fit: cover;
             object-position: 0 -10px;
         }
@@ -89,9 +90,8 @@
 
         .header-contact {
             display: flex;
-            align-items: center; /* Vertically center icons */
+            align-items: center;
             gap: 15px;
-            margin-left: 15px; /* Add some space between name and icons */
         }
 
             .header-contact img {
@@ -100,16 +100,17 @@
                 transition: transform 0.3s ease;
             }
 
- /*           .header-contact a {
+            .header-contact a {
                 opacity: 0;
                 animation: fadeIn 0.5s ease-in forwards;
                 animation-delay: 5s;
-            }*/
+            }
 
             .header-contact img {
                 width: 24px;
                 height: 24px;
                 transition: transform 0.3s ease;
+                filter: brightness(0) invert(1); /* This will make the icons white */
             }
 
             .header-contact a:hover img {
@@ -127,6 +128,8 @@
 
         header p {
             font-size: 1.2rem;
+            white-space: nowrap;
+            color: #ffffff;
         }
 
         .typing::after {
@@ -271,19 +274,19 @@
         <div class="particles" id="particles"></div>
         <div class="header-content">
             <div class="header-main">
-                <img src="images/headshot.png" alt="Preston A. Carter" class="header-image">
+                <img src="./images/headshot.png" alt="Preston A. Carter" class="header-image">
                 <div class="header-text">
                     <div class="name-container">
                         <h1 id="name" class="typing"></h1>
                         <div class="header-contact">
+                            <a href="mailto:preston.alex.carter@gmail.com">
+                                <img src="./images/gmail.png" alt="Email" />
+                            </a>
                             <a href="https://www.linkedin.com/in/prestonacarter/" target="_blank">
-                                <img src="images/linkedin.png" alt="LinkedIn" />
+                                <img src="./images/linkedin.png" alt="LinkedIn" />
                             </a>
                             <a href="https://github.com/preston-carter" target="_blank">
-                                <img src="images/github.png" alt="GitHub" />
-                            </a>
-                            <a href="mailto:preston.alex.carter@gmail.com">
-                                <img src="images/gmail.png" alt="Email" />
+                                <img src="./images/github.png" alt="GitHub" />
                             </a>
                         </div>
                     </div>
