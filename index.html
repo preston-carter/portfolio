@@ -55,7 +55,7 @@
         .header-content {
             position: relative;
             z-index: 10;
-            text-align: left;
+            text-align: center; /* Center the entire header content */
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
@@ -64,6 +64,7 @@
         .header-main {
             display: flex;
             align-items: center;
+            justify-content: center; /* Center the main content horizontally */
         }
 
         .header-image {
@@ -71,6 +72,8 @@
             height: 100px;
             border-radius: 50%;
             margin-right: 20px;
+            object-fit: cover;
+            object-position: 0 -10px;
         }
 
         .header-text {
@@ -79,21 +82,29 @@
 
         .name-container {
             display: flex;
-            align-items: center;
+            align-items: center; /* This will vertically center the name and icons */
             gap: 15px;
             margin-bottom: 0.5rem;
         }
 
         .header-contact {
             display: flex;
+            align-items: center; /* Vertically center icons */
             gap: 15px;
+            margin-left: 15px; /* Add some space between name and icons */
         }
 
-            .header-contact a {
+            .header-contact img {
+                width: 24px;
+                height: 24px;
+                transition: transform 0.3s ease;
+            }
+
+ /*           .header-contact a {
                 opacity: 0;
                 animation: fadeIn 0.5s ease-in forwards;
                 animation-delay: 5s;
-            }
+            }*/
 
             .header-contact img {
                 width: 24px;
@@ -260,7 +271,7 @@
         <div class="particles" id="particles"></div>
         <div class="header-content">
             <div class="header-main">
-                <img src="/api/placeholder/100/100" alt="Preston A. Carter" class="header-image">
+                <img src="images/headshot.png" alt="Preston A. Carter" class="header-image">
                 <div class="header-text">
                     <div class="name-container">
                         <h1 id="name" class="typing"></h1>
