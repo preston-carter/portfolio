@@ -248,7 +248,7 @@
             <div class="project-section" id="extraction">
                 <h3>Data Extraction & Load</h3>
                 <p class="mb-4">Every day using a GitHub actions workflow, raw planetary and moon data are extracted from a Solar System API and then loaded directly into BQ without transformation.</p>
-                <img src="./images/daily_extract_load.png" alt="Daily Extract Load Process" class="tutorial-image"/>   
+                <img src="./images/daily_extract_load.png" alt="Daily Extract Load Process"/>   
                 
             </div>
 
@@ -264,14 +264,14 @@
                     <li>Manage table and field descriptions (Data Dictionary)</li>
                 </ul>
                 <p class="mb-4">Dataform, which syncs directly with a GitHub repository (repo), allows us to have separate development and production environments in BQ, which enables testing, code management, and production-level protection.</p>
-                <img src="./images/prod_dev_datasets.png" alt="Production and Development Datasets" class="tutorial-image"/>
+                <img src="./images/prod_dev_datasets.png" alt="Production and Development Datasets"/>
 
                 <p class="mb-4">Dataform also allows us to schedule our transformation cycle to refresh daily. We can schedule this to run every day after our extract/load refresh in our GitHub repo. To do this:</p>
                 <ul class="mb-4">
                     <li>We create a release configuration, which refreshes the compilation of our Dataform repo to reference most recently merged update in the production branch of our GitHub repo</li>
                     <li>We create a workflow configuration to schedule the Dataform repo to refresh all production tables, views, and assertions (discussed in the next section)</li>
                 </ul>
-                <img src="./images/release_workflow_configs.png" alt="Release and Workflow Configurations" class="tutorial-image"/>
+                <img src="./images/release_workflow_configs.png" alt="Release and Workflow Configurations"/>
 
             </div>
 
@@ -281,11 +281,11 @@
                 <h4 class="text-xl font-semibold mt-6 mb-4">Data Quality</h4>
                 <p class="mb-4">Dataform allows us to pass assertions directly within a table's script or manually, through a separate script for more complex data quality rules. This allows us to protect our transformation pipeline should any unexpected errors occur when validating the conditions for each table.</p>
                 <p class="mb-4">For example, in our Moon and Planet tables, we have specified that each table a unique key and non-null field for both tables, MoonId and PlanetId, respectively.</p>
-                <img src="./images/assertion_example.png" alt="Assertion Example" class="tutorial-image"/>
+                <img src="./images/assertion_example.png" alt="Assertion Example"/>
 
                 <p class="mb-4">Should either of these validations fail, the metrics table that depends on these tables would not update, which protects the analytics data layer. Manually created assertions do not interrupt or impede the cycle, however. So if these validations fail, the pipeline will still run.</p>
                 <p class="mb-4">For example, for our moon data, we do not have values for many of the physical data fields for moons. This is expected, and so because of this it is better to remove those assertions or just disable the manual assertions to prevent unnecessary failure notifications, which will be covered next.</p>
-                <img src="./images/manual_assertions.png" alt="Manual Assertions" class="tutorial-image"/>
+                <img src="./images/manual_assertions.png" alt="Manual Assertions"/>
 
                 <h4 class="text-xl font-semibold mt-6 mb-4">Data Monitoring</h4>
                 <p class="mb-4">Dataform allows us to directly monitor anything we run in the repo. This could be:</p>
@@ -295,17 +295,17 @@
                     <li>All actions in our dev or prod environments (manually or scheduled)</li>
                 </ul>
                 <p class="mb-4">We can use the workflow execution logs to monitor all these runs and if there are any errors, we can investigate the cause:</p>
-                <img src="./images/workflow_execution_logs.png" alt="Workflow Execution Logs" class="tutorial-image"/>
+                <img src="./images/workflow_execution_logs.png" alt="Workflow Execution Logs"/>
 
                 <p class="mb-4">Example of a failed run:</p>
-                <img src="./images/failed_run.png" alt="Failed Run" class="tutorial-image"/>
-                <img src="./images/failed_run_details.png" alt="Failed Run Details" class="tutorial-image"/>
+                <img src="./images/failed_run.png" alt="Failed Run"/>
+                <img src="./images/failed_run_details.png" alt="Failed Run Details"/>
 
                 <p class="mb-4">As mentioned before, given that we do not need to monitor the manual assertions to check data quality for our Moon dataset, let's disable this script so it will not error our future runs (even though the run still completed successfully, just the manual assertion failed - this will add noise to our runs if we leave enabled. In a normal situation, these assertions would be monitored and the data corrected as opposed to just turning off the data quality checks).</p>
-                <img src="./images/moon_manual_assertions_config.png" alt="Moon Manual Assertions Config" class="tutorial-image"/>
+                <img src="./images/moon_manual_assertions_config.png" alt="Moon Manual Assertions Config"/>
 
                 <p class="mb-4">And after disabling, we see that our next full production cycle, does not have any errors:</p>
-                <img src="./images/run_success.png" alt="Successful Run" class="tutorial-image"/>                
+                <img src="./images/run_success.png" alt="Successful Run"/>                
             </div>
 
             <div class="project-section" id="analytics">
@@ -314,7 +314,7 @@
 
                 <h4 class="text-xl font-semibold mt-6 mb-4">Data Dictionary</h4>
                 <p class="mb-4">It was mentioned in the first section that Dataform also allows for management of table and field descriptions, which will be reflected in the tables themselves in BQ. This is done by entering these descriptions in the table's configuration:</p>
-                <img src="./images/table_config.png" alt="Table Configuration" class="tutorial-image"/>
+                <img src="./images/table_config.png" alt="Table Configuration"/>
             </div>
 
             <div class="project-section" id="future">
