@@ -83,7 +83,7 @@
 
         .name-container {
             display: flex;
-            align-items: center;
+            align-items: flex-end; /* This will align items to the bottom */
             margin-bottom: 0.5rem;
         }
 
@@ -91,7 +91,8 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            padding-top: 4px; /* This nudges the icons down slightly to align with the text */
+            margin-left: 15px;
+            /* Remove any padding-top if it was there */
         }
 
             .header-contact img {
@@ -120,7 +121,7 @@
             font-size: 2.5rem;
             margin-right: 15px;
             white-space: nowrap;
-            line-height: 1.2; /* This helps with vertical alignment */
+            line-height: 1; /* Adjust this to ensure clean bottom alignment */
         }
 
         header p {
@@ -272,19 +273,19 @@
         <div class="particles" id="particles"></div>
         <div class="header-content">
             <div class="header-main">
-                <img src="https://github.com/preston-carter/preston-carter.github.io/blob/main/images/headshot.png" alt="Preston A. Carter" class="header-image">
+                <img src="https://raw.githubusercontent.com/preston-carter/preston-carter.github.io/main/images/headshot.png" alt="Preston A. Carter" class="header-image">
                 <div class="header-text">
                     <div class="name-container">
                         <h1 id="name" class="typing"></h1>
                         <div class="header-contact">
                             <a href="https://www.linkedin.com/in/prestonacarter/" target="_blank">
-                                <img src="./images/linkedin.png" alt="LinkedIn" />
+                                <img src="https://raw.githubusercontent.com/preston-carter/preston-carter.github.io/main/images/linkedin.png" alt="LinkedIn" />
                             </a>
                             <a href="https://github.com/preston-carter" target="_blank">
-                                <img src="./images/github.png" alt="GitHub" />
+                                <img src="https://raw.githubusercontent.com/preston-carter/preston-carter.github.io/main/images/github.png" alt="GitHub" />
                             </a>
                             <a href="mailto:preston.alex.carter@gmail.com">
-                                <img src="./images/gmail.png" alt="Email" />
+                                <img src="https://raw.githubusercontent.com/preston-carter/preston-carter.github.io/main/images/gmail.png" alt="Email" />
                             </a>
                         </div>
                     </div>
