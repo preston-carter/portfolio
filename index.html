@@ -73,7 +73,9 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            object-fit: cover;
+            background-image: url('/images/headshot.png');
+            background-size: cover;
+            background-position: center;
   /*          object-position: 0 10px;*/
         }
 
@@ -272,7 +274,7 @@
         <div class="particles" id="particles"></div>
         <div class="header-content">
             <div class="header-main">
-                <img src="./images/headshot.png" alt="Preston A. Carter" class="header-image">
+                <div class="header-image" role="img" aria-label="Preston A. Carter"></div>
                 <div class="header-text">
                     <div class="name-container">
                         <h1 id="name" class="typing"></h1>
