@@ -220,7 +220,7 @@
                 The interactive visualization above represents the flow of this data pipeline project. Click on each stage to learn more about its specific role in the process. Below you'll find a comprehensive walkthrough of every component, including implementation details, configurations, and key decisions made during development. This walkthrough demonstrates how raw astronomical data is transformed into analytics-ready datasets through automated processes, quality controls, and careful orchestration.
             </p>
             <p class="text-gray-700 mb-6">
-                Each section details a critical part of the pipeline, from initial API data collection through transformation and quality controls, to final analytics preparation. You'll see real examples of configurations, error handling, and monitoring approaches used in production.
+                Each section details a critical part of the pipeline, from initial API data collection through transformation and quality controls, to final analytics preparation. You'll see real examples of configurations, error handling, and monitoring approaches used in production. If you'd like to see all python and Dataform scripts, please visit the Github link below. You will also find a more technical project discussion in the DOCUMENTATION.md file there.'
             </p>
             <a href="https://github.com/preston-carter/solar_system_gcp_data_pipeline"
                target="_blank"
@@ -380,28 +380,28 @@
                     fullTitle: 'Data Extraction',
                     icon: '🌍',
                     color: 'bg-blue-100',
-                    description: 'Python script extracts celestial body data from Solar System OpenData API with daily automated updates via GitHub Actions.'
+                    description: 'Python script extracts celestial body data from a Solar System OpenData API with daily automated updates via GitHub Actions workflow.'
                 },
                 {
                     title: 'Load',
                     fullTitle: 'Raw Data Layer',
                     icon: '💾',
                     color: 'bg-green-100',
-                    description: 'Raw JSON data loaded into BigQuery staging tables, preserving original structure with auto-detected schema.'
+                    description: 'Raw JSON data are loaded into BigQuery staging tables, preserving original structure with auto-detected schema. This process is also run daily by an automated Github Actions worfklow.'
                 },
                 {
                     title: 'Transform',
                     fullTitle: 'Transformation Layer',
                     icon: '⚙️',
                     color: 'bg-yellow-100',
-                    description: 'Dataform creates standardized Planet and Moon tables with proper relationships and field mappings.'
+                    description: 'Using Dataform, standardized Planet and Moon tables are created with proper relationships and field mappings.'
                 },
                 {
                     title: 'Quality',
                     fullTitle: 'Data Quality',
                     icon: '✔️',
                     color: 'bg-purple-100',
-                    description: 'Automated assertions validate physical properties, relationships, and data integrity across all tables.'
+                    description: 'Using Dataform, automated assertions validate physical properties, relationships, and data integrity across all tables.'
                 },
                 {
                     title: 'Analytics',
