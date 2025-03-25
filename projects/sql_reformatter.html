@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SQL Reformatter | Preston A. Carter</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      background-color: #333;
+      color: white;
+      padding: 10px 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Custom SQL Reformatter</h1>
+  <p>
+    This project is a custom SQL formatting tool built using Python and Streamlit. It allows users to paste raw SQL and apply formatting rules based on team-specific standards, such as:
+  </p>
+  <ul>
+    <li>Lowercase SQL keywords</li>
+    <li>Leading commas in select clauses</li>
+    <li>PascalCase for field and CTE names</li>
+    <li>CASE/WHEN/THEN alignment</li>
+    <li>Strict no-renaming or reflowing logic</li>
+  </ul>
+
+  <p>
+    It’s useful for teams with strict SQL style guides or analysts who want consistent formatting across queries and PRs.
+  </p>
+
+  <a href="https://sql-reformatter.streamlit.app" class="button" target="_blank">Launch SQL Reformatter →</a>
+</body>
+</html>
