@@ -247,17 +247,18 @@
             }
 
         .project-link {
-            display: inline-block;
-            margin-top: 1rem;
+            display: block;        /* puts the link on its own line */
+            margin-top: 1rem;      /* space above */
+            margin-bottom: 1rem;   /* space below for the “return” */
             color: #333;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
         }
-
-            .project-link:hover {
-                color: #666;
-            }
+        
+        .project-link:hover {
+            color: #666;
+        }
 
         footer {
             text-align: center;
@@ -343,7 +344,13 @@
                     <p>Built a web-based tool that formats SQL scripts to match strict team standards. Features include lowercase SQL keywords, leading commas, PascalCase fields, aligned CASE statements, and no unwanted line or name changes.</p>
                     <a href="projects/sql_reformatter.html" class="project-link">View Project Details →</a>
                 </div>
+                <div class="project">
+                    <h3>CitySensei – AI-Powered Local Recommendations</h3>
+                    <p>Developed and launched CitySensei, a cross-platform mobile and web app that delivers smart, ranked local recommendations powered by AI and Google Places data. Available now on iOS.</p>
+                    <a href="https://citysensei.app" target="_blank" class="project-link">View Project Details →</a>
+                </div>
             </section>
+            
         </main>
     </div>
 
